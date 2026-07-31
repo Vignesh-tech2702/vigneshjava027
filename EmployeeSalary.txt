@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+class Employee {
+    int id;
+    String name, address, mail, mobile;
+    double bp, da, hra, pf, staffclub, gross, net;
+
+    void getData() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Employee ID: ");
+        id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Employee Name: ");
+        name = sc.nextLine();
+
+        System.out.print("Enter Address: ");
+        address = sc.nextLine();
+
+        System.out.print("Enter Mail ID: ");
+        mail = sc.nextLine();
+
+        System.out.print("Enter Mobile Number: ");
+        mobile = sc.nextLine();
+
+        System.out.print("Enter Basic Pay: ");
+        bp = sc.nextDouble();
+    }
+
+    void display() {
+        System.out.println("\nEmployee Details");
+        System.out.println("Employee ID : " + id);
+        System.out.println("Employee Name : " + name);
+        System.out.println("Address : " + address);
+        System.out.println("Mail ID : " + mail);
+        System.out.println("Mobile Number : " + mobile);
+        System.out.println("Basic Pay : " + bp);
+        System.out.println("DA : " + da);
+        System.out.println("HRA : " + hra);
+        System.out.println("PF : " + pf);
+        System.out.println("Staff Club Fund : " + staffclub);
+        System.out.println("Gross Salary : " + gross);
+        System.out.println("Net Salary : " + net);
+    }
+}
+
+class Programmer extends Employee {
+    void calculate() {
+        da = bp * 97 / 100;
+        hra = bp * 10 / 100;
+        pf = bp * 12 / 100;
+        staffclub = bp * 1 / 100;
+
+        gross = bp + da + hra;
+        net = gross - pf - staffclub;
+    }
+}
+
+public class EmployeeSalary {
+    public static void main(String[] args) {
+
+        Programmer p = new Programmer();
+
+        p.getData();
+        p.calculate();
+        p.display();
+    }
+}

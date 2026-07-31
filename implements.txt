@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+interface Calculator {
+    void add();
+    void subtract();
+    void multiply();
+    void divide();
+}
+
+class Arithmetic implements Calculator {
+    int a, b;
+
+    Arithmetic(int x, int y) {
+        a = x;
+        b = y;
+    }
+
+    public void add() {
+        System.out.println("Addition = " + (a + b));
+    }
+
+    public void subtract() {
+        System.out.println("Subtraction = " + (a - b));
+    }
+
+    public void multiply() {
+        System.out.println("Multiplication = " + (a * b));
+    }
+
+    public void divide() {
+        if (b != 0)
+            System.out.println("Division = " + (a / b));
+        else
+            System.out.println("Division by zero is not possible.");
+    }
+}
+
+public class ArithmeticOperation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter First Number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter Second Number: ");
+        int b = sc.nextInt();
+
+        Arithmetic obj = new Arithmetic(a, b);
+
+        obj.add();
+        obj.subtract();
+        obj.multiply();
+        obj.divide();
+    }
+}
